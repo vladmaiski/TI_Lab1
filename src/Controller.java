@@ -22,7 +22,7 @@ public class Controller extends Application {
 
 
     @FXML
-    private RadioButton playfairCheck;
+    private RadioButton columnCheck;
 
     @FXML
     private RadioButton vigenerCheck;
@@ -251,7 +251,7 @@ public class Controller extends Application {
         EncryptionMethod selected = null;
         if (railwayCheck.isSelected()) selected = EncryptionMethod.RailwayFence;
         else if (vigenerCheck.isSelected()) selected = EncryptionMethod.Vigener;
-        else if (playfairCheck.isSelected()) selected = EncryptionMethod.Column;
+        else if (columnCheck.isSelected()) selected = EncryptionMethod.Column;
         return selected;
     }
 

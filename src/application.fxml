@@ -38,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="playfairCheck" mnemonicParsing="false" onAction="#setupHint" text="Сolumn method (en)" toggleGroup="$encryptMethod">
+            <RadioButton fx:id="columnCheck" mnemonicParsing="false" onAction="#setupHint" text="Сolumn method (en)" toggleGroup="$encryptMethod">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
