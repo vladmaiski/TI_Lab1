@@ -86,8 +86,6 @@ public class Controller extends Application {
                 String filteredMsg = msgFilter.filterMsg(plainText.getText(), false);
                 if (filteredMsg.length() > 0) {
                     cipherText.setText(encryptor.encrypt(filteredMsg, key));
-                    saveToFile(cipherText.getText(), getEncryptionMethod().toString() + " "
-                            + key + " " + "Cipher.txt");
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Incorrect input");
@@ -108,8 +106,6 @@ public class Controller extends Application {
                 String filteredMsg = msgFilter.filterMsg(cipherText.getText(), false);
                 if (filteredMsg.length() > 0) {
                     plainText.setText(encryptor.decrypt(filteredMsg, key));
-                    saveToFile(plainText.getText(), getEncryptionMethod().toString() + " "
-                            + key + " " + "Plain.txt");
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Incorrect input");
@@ -176,14 +172,6 @@ public class Controller extends Application {
         }
     }
 
-    private void saveToFile(String text, String fileName) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     void saveFile(boolean savePlainText) {
         try {
             File file = chooseFile(true);
@@ -242,6 +230,7 @@ public class Controller extends Application {
     public File chooseFile(boolean toSave) throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialFileName(".txt");
+        fileChooser.setInitialDirectory(new File("res/"));
         fileChooser.getExtensionFilters().add((new FileChooser.ExtensionFilter("Text files (*.txt)", "*.txt")));
         File file;
         if (toSave)
