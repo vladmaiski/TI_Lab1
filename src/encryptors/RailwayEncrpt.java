@@ -24,9 +24,9 @@ public class RailwayEncrpt implements Encryptor {
         return resText;
     }
 
-    public String decrypt(String toDecrypt, String keySrc) {
+    public String decrypt(String srcText, String keySrc) {
         int key = Integer.parseInt(keySrc);
-        if (key == 1) return toDecrypt;
+        if (key == 1) return srcText;
         StringBuilder plainText = new StringBuilder();
         StringBuilder[] arr = new StringBuilder[key];
         int index = 0;
@@ -34,12 +34,12 @@ public class RailwayEncrpt implements Encryptor {
             int j = lvl;
             boolean flag = false;
             int counter = 0;
-            while (j < toDecrypt.length()) {
+            while (j < srcText.length()) {
                 counter++;
                 j += getOffset(lvl, flag, key);
                 flag = !flag;
             }
-            arr[lvl] = new StringBuilder(toDecrypt.substring(index, index + counter));
+            arr[lvl] = new StringBuilder(srcText.substring(index, index + counter));
             index += counter;
         }
 
