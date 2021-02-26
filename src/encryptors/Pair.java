@@ -1,4 +1,6 @@
-class Pair<E extends  Comparable<E>, K> implements Comparable<Pair<E, K>> {
+package encryptors;
+
+public class Pair<E extends  Comparable<E>, K> implements Comparable<Pair<E, K>> {
     private E firstVal;
     private K secVal;
 

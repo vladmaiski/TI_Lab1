@@ -1,3 +1,5 @@
+package encryptors;
+
 import constants.Alphabet;
 import constants.Language;
 
@@ -7,7 +9,7 @@ public class VigenerEncrpt implements Encryptor {
     private final int alphabetLen;
     private final Language lang;
 
-    VigenerEncrpt(Language lang) throws IllegalArgumentException {
+    public VigenerEncrpt(Language lang) throws IllegalArgumentException {
         switch (lang) {
             case RUS -> {
                 this.lang = lang;

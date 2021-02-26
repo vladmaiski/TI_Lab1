@@ -1,5 +1,7 @@
+package encryptors;
+
 public class RailwayEncrpt implements Encryptor {
-    // any language
+
     public String encrypt(String toEncrypt, String keySrc) {
         StringBuilder cipherText = new StringBuilder();
         int key = Integer.parseInt(keySrc);
@@ -14,7 +16,6 @@ public class RailwayEncrpt implements Encryptor {
             }
         }
         return cipherText.toString();
-        //return cipherText.toString().toUpperCase();
     }
 
     public String decrypt(String toDecrypt, String keySrc) {
@@ -55,7 +56,6 @@ public class RailwayEncrpt implements Encryptor {
             }
         }
         return plainText.toString();
-        //return plainText.toString().toUpperCase();
     }
 
     private int getOffset(int lvl, boolean flag, int key) {

@@ -1,3 +1,7 @@
+import encryptors.ColumnEncrptr;
+import encryptors.RailwayEncrpt;
+import encryptors.VigenerEncrpt;
+import constants.EncryptionMethod;
 import constants.Errors;
 import constants.Language;
 import javafx.application.Application;
@@ -9,6 +13,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.stage.Window;
+
+import encryptors.*;
 
 import java.io.*;
 
