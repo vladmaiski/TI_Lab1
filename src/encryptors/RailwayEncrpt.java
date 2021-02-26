@@ -7,15 +7,21 @@ public class RailwayEncrpt implements Encryptor {
         int key = Integer.parseInt(keySrc);
         if (key == 1) return toEncrypt;
         for (int lvl = 0; lvl < key; lvl++) {
-            int j = lvl;
-            boolean flag = false;
-            while (j < toEncrypt.length()) {
-                cipherText.append(toEncrypt.charAt(j));
-                j += getOffset(lvl, flag, key);
-                flag = !flag;
-            }
+            cipherText.append(createLine(lvl, toEncrypt, key));
         }
         return cipherText.toString();
+    }
+
+    private StringBuilder createLine(int lvl, String text, int key) {
+        StringBuilder resText = new StringBuilder();
+        int currEl = lvl;
+        boolean flag = false;
+        while (currEl < text.length()) {
+            resText.append(text.charAt(currEl));
+            currEl += getOffset(lvl, flag, key);
+            flag = !flag;
+        }
+        return resText;
     }
 
     public String decrypt(String toDecrypt, String keySrc) {
